@@ -1,6 +1,6 @@
-aluno: 2024.1905.026-3
-aluno: 2024.1905.054-9
-aluno: 2024.1905.017-4
+Heitor Monteiro Padovese: 2024.1905.026-3
+Ian Hiraoka Gaidarji: 2024.1905.054-9
+Yan Lucas Galvão Almeida: 2024.1905.017-4
 uso_ia: sim
 
 # Trabalho Prático 1: Análise Léxica para Micro C
