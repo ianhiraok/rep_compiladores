@@ -1,14 +1,13 @@
-# Trabalho de Compiladores I - Parte 1
+aluno: 202419050263
+aluno: 2024.1905.054-9
+aluno: 2024.1905.017-4
+uso_ia: sim
 
 # Trabalho Prático 1: Análise Léxica para Micro C
 
-Repositório do Trabalho Prático 1 da disciplina **Compiladores I (FACOM)**: implementação de um **analisador léxico (scanner)** para a linguagem **Micro C**, utilizando a ferramenta **Flex**.
+Trabalho Prático 1 da disciplina **Compiladores I (FACOM)**: implementação, a partir do esqueleto `microc.flex`, de um **analisador léxico (scanner)** para a linguagem **Micro C**, usando **Flex**. Reconhece palavras reservadas, identificadores (com tabela de símbolos), constantes, operadores e delimitadores, além de identificar e reportar erros léxicos.
 
-## 📋 Sobre o trabalho
-
-O objetivo é completar a especificação léxica de Micro C a partir de um esqueleto fornecido (`microc.flex`), reconhecendo corretamente todos os tokens da linguagem — palavras reservadas, identificadores, constantes, operadores e delimitadores — além de identificar e reportar erros léxicos.
-
-Para cada token reconhecido na entrada, o scanner deve imprimir seu tipo, o lexema correspondente e a linha em que foi encontrado:
+O executável de teste `lexer` (ver Seção 6 do enunciado) lê um arquivo `.mc` e imprime, para cada token reconhecido, seu tipo, o lexema correspondente e a linha em que foi encontrado:
 
 ```
 Token: tipo = INT lexema = 'int' linha = 1
@@ -42,14 +41,14 @@ comp1-2026/
 ## ✅ Itens implementados
 
 - [x] Reconhecimento das palavras reservadas: `main`, `if`, `else`, `for`, `return`, `int`, `char`, `print` (via `strcmp()`, demais sequências alfanuméricas viram `ID`)
-- [x] Tabela de símbolos (lista encadeada) para armazenar lexemas únicos de `ID`, `INTEGERCONST`, `CHARCONST` e `STRINGCONST`
+- [x] Tabela de símbolos (lista encadeada) para armazenar lexemas únicos de `ID`, `INTEGERCONST`, `CHARCONST` e `STRINGCONST`, expostos em `microc_yylval.symbol`
 - [x] Constantes de caractere (`CHARCONST`), incluindo escapes (`'\n'`, `'\t'`, `'\"'`, `'\''`, `'\\'`) e erro de aspas não fechadas/inválidas
-- [x] Constantes de string (`STRINGCONST`), com estado exclusivo `<STR>`, conversão de sequências de escape (`\n`, `\t`, `\\`, `\"`, `\0`) e tratamento dos erros: EOF em string, string não terminada e caractere nulo em string
+- [x] Constantes de string (`STRINGCONST`), com estado exclusivo `<STR>`, conversão de sequências de escape (`\n`, `\t`, `\\`, `\"`, `\0`) e tratamento dos erros exigidos na Seção 4.1 do enunciado: `EOF em string`, `String nao terminada`, `String contem caractere nulo`, `EOF em comentario` e `Comentario nao iniciado`
 - [x] Operadores relacionais e lógicos com prefixo compartilhado: `!=`, `!`, `<=`, `<`, `>=`, `>`, `&&`, `||` (seguindo o exemplo já implementado para `==` e `=`)
 - [x] Tratamento de constantes inteiras negativas (`"-"{DIGIT}+`), diferenciando-as do operador de subtração
 - [x] Especificação léxica completa (toda entrada corresponde a alguma regra, inclusive a regra de erro no final do arquivo)
-- [ ] Ampliação dos arquivos de teste, cobrindo o maior número possível de tokens e de erros léxicos
-- [ ] Remoção de instruções de depuração (`printf` de teste etc.) antes da entrega
+- [x] Nenhuma instrução de depuração além do `main()` de teste previsto no enunciado (Seção 6)
+- [ ] Ampliação de `tests/test.mc` cobrindo também casos de erro léxico (ver observações abaixo)
 
 ## 🔧 Como compilar
 
@@ -60,9 +59,7 @@ flex microc.flex
 gcc lex.yy.c -o lexer
 ```
 
-O primeiro comando gera o arquivo `lex.yy.c` a partir das regras definidas em `microc.flex`. O segundo compila esse código gerado, produzindo o executável `lexer`.
-
-> Caso o professor disponibilize um `Makefile`, os mesmos passos poderão ser executados com `make lexer`.
+O primeiro comando gera o arquivo `lex.yy.c` a partir das regras definidas em `microc.flex`. O segundo compila esse código gerado, produzindo o executável `lexer`. Ver `leiame.txt` para instruções adicionais.
 
 ## ▶️ Como executar
 
@@ -80,8 +77,9 @@ O uso de ferramentas de IA (Gemini e Claude) como apoio conceitual durante o des
 
 | Nome | Matrícula |
 |------|-----------|
-| _preencher_ | _preencher_ |
-| _preencher (se houver dupla)_ | _preencher_ |
+| Heitor Monteiro Padovese | 202419050263 |
+| Ian Hiraoka Gaidarji | 2024.1905.054-9 |
+| Yan Lucas Galvão Almeida | 2024.1905.017-4 |
 
 ## 🎓 Disciplina
 
