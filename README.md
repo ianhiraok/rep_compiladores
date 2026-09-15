@@ -77,7 +77,7 @@ O uso de ferramentas de IA (Gemini e Claude) como apoio conceitual durante o des
 
 | Nome | Matrícula |
 |------|-----------|
-| Heitor Monteiro Padovese | 202419050263 |
+| Heitor Monteiro Padovese | 2024.1905.026-3 |
 | Ian Hiraoka Gaidarji | 2024.1905.054-9 |
 | Yan Lucas Galvão Almeida | 2024.1905.017-4 |
 
